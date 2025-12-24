@@ -1,0 +1,123 @@
+/* src/app.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+  --primary-brand: #193737;
+  --primary-brand-light: #2a5a5a;
+  --primary-bg: #f4f7f7;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(25, 55, 55, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(25, 55, 55, 0.08);
+  
+  --color-text-main: #193737;
+  --color-text-muted: #4a6363;
+  --color-accent: #193737;
+  --color-accent-hover: #2a5a5a;
+  
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --blob-color-1: #d1dfdf;
+  --blob-color-2: #e0ecec;
+  --radius-lg: 30px;
+}
+
+[data-bs-theme="dark"] {
+  --primary-bg: #0d1a1a;
+  --glass-bg: rgba(25, 55, 55, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  
+  --color-text-main: #e0ecec;
+  --color-text-muted: #a0b2b2;
+  --color-accent: #4ebaba;
+  --color-accent-hover: #70cccc;
+  
+  --input-bg: rgba(25, 55, 55, 0.4);
+  --blob-color-1: #142b2b;
+  --blob-color-2: #0a1515;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--primary-bg);
+  color: var(--color-text-main);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Animated Floating Background */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: floatBlob 25s infinite alternate ease-in-out;
+}
+
+body::before { background: var(--blob-color-1); top: -10%; left: -10%; }
+body::after { background: var(--blob-color-2); bottom: -10%; right: -10%; animation-delay: -5s; }
+
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(100px, 50px) scale(1.2); }
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  border-radius: var(--radius-lg);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Bubbly Buttons */
+.btn-bubbly {
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 10px 24px;
+  transition: all 0.3s ease;
+  border: none;
+  background: var(--color-accent);
+  color: white;
+}
+
+.btn-bubbly:hover {
+  transform: scale(1.05) translateY(-2px);
+  background: var(--color-accent-hover);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.form-control {
+  border-radius: 18px;
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  padding: 12px 18px;
+  color: var(--color-text-main);
+}
+
+.form-control:focus {
+  background: var(--input-bg);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(78, 186, 186, 0.2);
+  color: var(--color-text-main);
+}
