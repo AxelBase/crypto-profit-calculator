@@ -257,7 +257,6 @@
 
   <div class="text-center mt-5">
     <a href="{base}/blog" class="btn btn-outline-primary me-3">Read Our Blog</a>
-    <a href="{base}/calculator" class="btn btn-primary-custom">Advanced Calculator</a>
   </div>
 </div>
 
