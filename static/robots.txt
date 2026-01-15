@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://axelbase.github.io/crypto-profit-calculator/sitemap.xml
+Sitemap: https://crypto-profit-calculator.vercel.app/sitemap.xml
